@@ -6,7 +6,8 @@ Created on Thu Oct 29 13:51:57 2015
 """
 
 import sys
- 
+
+"""
 from _winreg import *
  
 # tweak as necessary
@@ -45,3 +46,4 @@ def RegisterPy():
  
 if __name__ == "__main__":
     RegisterPy()
+"""
