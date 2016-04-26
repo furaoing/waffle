@@ -84,14 +84,16 @@ def json_write(_file, json_obj):
 
 class Timer(object):
     def __init__(self):
-        self.start_time = 0
+        self.start_time = time.time()
         self.end_time = 0
 
     def start(self):
         self.start_time = time.time()
+        return self.start_time
 
     def end(self):
         self.end_time = time.time()
+        return self.t_elapsed()
 
     def t_elapsed(self):
         return self.end_time - self.start_time
