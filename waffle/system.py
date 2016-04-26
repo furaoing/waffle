@@ -11,6 +11,7 @@ import json
 import sys
 import logging
 
+
 def listdir_powered(folder):
     files = os.listdir(folder)
     myfiles = list()
