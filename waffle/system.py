@@ -108,6 +108,16 @@ def get_entry_pth():
         return tmp
 
 
+def get_entry_pth_parent():
+    entry_pth = get_entry_pth()
+    return os.path.dirname(entry_pth)
+
+
+def get_entry_pth_basename():
+    entry_pth = get_entry_pth()
+    return os.path.basename(entry_pth)
+
+
 def create_abs_path(relative_pth):
     base_path = get_entry_pth()
     abs_path = os.path.join(base_path, relative_pth)
@@ -115,4 +125,4 @@ def create_abs_path(relative_pth):
 
 
 if __name__ == "__main__":
-    print(create_abs_path("afd"))
+    print(get_entry_pth_basename())
