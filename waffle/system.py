@@ -5,7 +5,6 @@ Created on Fri Jul 24 10:23:52 2015
 @author: Taikor
 """
 import os
-import system
 import time
 import codecs
 import json
@@ -121,7 +120,7 @@ def get_entry_pth_basename():
 
 def extend_pythonpath():
     try:
-        package_path = system.get_entry_pth_parent()
+        package_path = get_entry_pth_parent()
         sys.path.append(package_path)
         return True
     except Exception:
