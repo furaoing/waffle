@@ -5,6 +5,7 @@ Created on Fri Jul 24 10:23:52 2015
 @author: Taikor
 """
 import os
+import system
 import time
 import codecs
 import json
@@ -118,6 +119,15 @@ def get_entry_pth_basename():
     return os.path.basename(entry_pth)
 
 
+def extend_pythonpath():
+    try:
+        package_path = system.get_entry_pth_parent()
+        sys.path.append(package_path)
+        return True
+    except Exception:
+        raise Exception
+
+
 def create_abs_path(relative_pth):
     base_path = get_entry_pth()
     abs_path = os.path.join(base_path, relative_pth)
@@ -125,4 +135,4 @@ def create_abs_path(relative_pth):
 
 
 if __name__ == "__main__":
-    print(get_entry_pth_basename())
+    print(extend_pythonpath())
