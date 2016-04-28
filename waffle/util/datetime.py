@@ -64,6 +64,12 @@ class TimeFormater(Time):
 
         return formated_time
 
+    def format_time_as_fn(self):
+        """ fn = file name """
+        fm_time = self.format_time()
+        fm_time_as_fn = fm_time.replace(r":", "-")
+        return fm_time_as_fn
+
 
 if __name__ == "__main__":
     tf = TimeFormater("es")
