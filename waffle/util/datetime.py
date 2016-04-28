@@ -73,6 +73,6 @@ class TimeFormater(Time):
 
 if __name__ == "__main__":
     tf = TimeFormater("es")
-    print(tf.format_time())
+    print(tf.format_time_as_fn())
     b = time.tzname
     a = 1
