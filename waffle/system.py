@@ -22,23 +22,23 @@ def listdir_powered(folder):
     return myfiles
 
 
-def f_read(_file, mode="read", strip_option=True):
-    s = None
-    mode_enum = ("read", "readlines", "iter")
+def f_read(_file, readlines=False, strip_option=True):
     strip_option_enum = (True, False)
+    readlines_enum = (True, False)
 
-    if mode not in mode_enum:
-        logging.warning("Wrong Argument Given: mode")
-        raise Exception
     if strip_option not in strip_option_enum:
         logging.warning("Wrong Argument Given: strip_option")
         raise Exception
+    if readlines not in readlines_enum:
+        logging.warning("Wrong Argument Given: readlines")
+        raise Exception
     # check if a illegal argument was given
 
-    if mode == "read":
+    if not readlines:
         with codecs.open(_file, "r", encoding="utf8") as f:
             s = f.read()
-    elif mode == "readlines":
+            return s
+    else:
         with codecs.open(_file, "r", encoding="utf8") as f:
             s = f.readlines()
 
@@ -48,11 +48,7 @@ def f_read(_file, mode="read", strip_option=True):
                     s[i] = s[i].strip("\r")
                     s[i] = s[i].strip(" ")
                     s[i] = s[i].strip("\t")
-    else:
-        # Already checked value of mode, no chance to handle exceptions here
-        pass
-
-    return s
+            return s
 
 
 def f_read_generator(_file, strip_option=True):
@@ -134,4 +130,5 @@ def create_abs_path(relative_pth):
 
 
 if __name__ == "__main__":
-    print(extend_pythonpath())
+    path = r"C:\Users\roy\Desktop\abc.txt"
+    print(f_read(path, readlines=True))
