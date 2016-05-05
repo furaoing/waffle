@@ -115,12 +115,9 @@ def get_entry_pth_basename():
 
 
 def extend_pythonpath():
-    try:
-        package_path = get_entry_pth_parent()
-        sys.path.append(package_path)
-        return True
-    except Exception:
-        raise Exception
+    package_path = get_entry_pth_parent()
+    sys.path.append(package_path)
+    return True
 
 
 def create_abs_path(relative_pth):
