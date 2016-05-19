@@ -114,9 +114,17 @@ def get_entry_pth_basename():
     return os.path.basename(entry_pth)
 
 
+def get_package_root():
+    return get_entry_pth()
+
+
+def get_package_name():
+    return get_entry_pth_basename()
+
+
 def extend_pythonpath():
-    package_path = get_entry_pth_parent()
-    sys.path.append(package_path)
+    parent_of_package_root = get_entry_pth_parent()
+    sys.path.append(parent_of_package_root)
     return True
 
 
@@ -127,5 +135,5 @@ def create_abs_path(relative_pth):
 
 
 if __name__ == "__main__":
-    path = r"C:\Users\roy\Desktop\abc.txt"
-    print(f_read(path, readlines=True))
+    print(get_package_root())
+    print(get_package_name())
