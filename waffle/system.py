@@ -128,11 +128,19 @@ def extend_pythonpath():
     return True
 
 
-def create_abs_path(relative_pth):
+def create_abs_path(rel_pth):
     base_path = get_entry_pth()
-    abs_path = os.path.join(base_path, relative_pth)
+    abs_path = os.path.join(base_path, rel_pth)
     return abs_path
 
+
+def abs_path(rel_pth):
+    """
+    Name Alias
+    :param rel_pth:
+    :return:
+    """
+    return create_abs_path(rel_pth)
 
 if __name__ == "__main__":
     print(get_package_root())
