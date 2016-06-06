@@ -26,11 +26,15 @@ def helper(depth, bank):
 
 
 def generate_comb(bank):
-    width = len(bank)
-    depth = width - 1
-    result = helper(depth, bank)
-    print(len(result))
-    print(result)
+    if len(bank) > 1:
+        width = len(bank)
+        depth = width - 1
+        result = helper(depth, bank)
+        # print(len(result))
+        # print(result)
+        return result
+    else:
+        return bank
 
 
 if __name__ == "__main__":
