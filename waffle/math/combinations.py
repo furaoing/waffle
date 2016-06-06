@@ -26,17 +26,19 @@ def helper(depth, bank):
 
 
 def generate_comb(bank):
+    for i in range(len(bank)):
+        if len(bank[i]) == 0:
+            bank[i] = [None]
     if len(bank) > 1:
         width = len(bank)
         depth = width - 1
         result = helper(depth, bank)
-        # print(len(result))
-        # print(result)
         return result
     else:
         return bank
 
 
 if __name__ == "__main__":
-    bank = [['a', 'b'], ['c', 'd']]
-    generate_comb(bank)
+    bank = [['a', 'b'], [], ["k", "j"]]
+    result = generate_comb(bank)
+    print(result)
