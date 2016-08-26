@@ -9,7 +9,6 @@ import time
 import codecs
 import json
 import sys
-import logging
 
 
 def listdir_powered(folder):
@@ -27,16 +26,21 @@ def f_read(_file, readlines=False, strip_option=True):
     readlines_enum = (True, False)
 
     if strip_option not in strip_option_enum:
-        logging.warning("Wrong Argument Given: strip_option")
+        print("Wrong Argument Given: strip_option")
         raise Exception
     if readlines not in readlines_enum:
-        logging.warning("Wrong Argument Given: readlines")
+        print("Wrong Argument Given: readlines")
         raise Exception
     # check if a illegal argument was given
 
     if not readlines:
         with codecs.open(_file, "r", encoding="utf8") as f:
             s = f.read()
+            if strip_option:
+                s = s.strip("\n")
+                s = s.strip("\r")
+                s = s.strip(" ")
+                s = s.strip("\t")
             return s
     else:
         with codecs.open(_file, "r", encoding="utf8") as f:
@@ -54,7 +58,7 @@ def f_read(_file, readlines=False, strip_option=True):
 def f_read_generator(_file, strip_option=True):
     strip_option_enum = (True, False)
     if strip_option not in strip_option_enum:
-        logging.warning("Wrong Argument Given: strip_option")
+        print("Wrong Argument Given: strip_option")
         raise Exception
     f = codecs.open(_file, "r", encoding="utf8")
     while True:
@@ -143,5 +147,5 @@ def abs_path(rel_pth):
     return create_abs_path(rel_pth)
 
 if __name__ == "__main__":
-    print(get_package_root())
-    print(get_package_name())
+    print(get_entry_pth_parent())
+    print(get_entry_pth_basename())
