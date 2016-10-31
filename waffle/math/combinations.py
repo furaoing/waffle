@@ -45,6 +45,6 @@ def generate_comb(bank):
 
 
 if __name__ == "__main__":
-    bank = [[]]
+    bank = [[1, 2], [1, 2]]
     result = generate_comb(bank)
     print(result)

@@ -87,6 +87,7 @@ class Timer(object):
     def __init__(self):
         self.start_time = time.time()
         self.end_time = 0
+        self.t_elapsed = 0
 
     def start(self):
         self.start_time = time.time()
@@ -94,10 +95,11 @@ class Timer(object):
 
     def end(self):
         self.end_time = time.time()
-        return self.t_elapsed()
+        return self._t_elapsed()
 
-    def t_elapsed(self):
-        return self.end_time - self.start_time
+    def _t_elapsed(self):
+        self.t_elapsed = self.end_time - self.start_time
+        return self.t_elapsed
 
 
 def get_entry_pth():
@@ -147,5 +149,10 @@ def abs_path(rel_pth):
     return create_abs_path(rel_pth)
 
 if __name__ == "__main__":
+    t = Timer()
+    t.start()
+    time.sleep(1)
+    t.end()
+    print(t.t_elapsed)
     print(get_entry_pth_parent())
     print(get_entry_pth_basename())
