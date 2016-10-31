@@ -89,17 +89,19 @@ class Timer(object):
         self.end_time = 0
         self.t_elapsed = 0
 
+    def __str__(self):
+        return self.t_elapsed
+
     def start(self):
         self.start_time = time.time()
         return self.start_time
 
-    def end(self):
+    def stop(self):
         self.end_time = time.time()
         return self._t_elapsed()
 
     def _t_elapsed(self):
         self.t_elapsed = self.end_time - self.start_time
-        return self.t_elapsed
 
 
 def get_entry_pth():
