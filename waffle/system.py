@@ -137,6 +137,11 @@ def extend_pythonpath():
 
 
 def create_abs_path(rel_pth):
+    """
+    Create an abs path based on relative path given
+    :param rel_pth:
+    :return:
+    """
     base_path = get_entry_pth()
     abs_path = os.path.join(base_path, rel_pth)
     return abs_path
@@ -150,11 +155,20 @@ def abs_path(rel_pth):
     """
     return create_abs_path(rel_pth)
 
+
+def get_script_path():
+    return __file__
+
+
+def get_script_directory():
+    return os.path.dirname(get_script_path())
+
+
 if __name__ == "__main__":
     t = Timer()
     t.start()
     time.sleep(1)
-    t.end()
+    t.stop()
     print(t.t_elapsed)
     print(get_entry_pth_parent())
     print(get_entry_pth_basename())
