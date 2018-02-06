@@ -105,6 +105,10 @@ class Timer(object):
 
 
 def get_entry_pth():
+    """
+    Entry path refers to the directory path of the entry script
+    :return:
+    """
     tmp = sys.path[0]
     if sys.path[0] == "":
         return os.getcwd()
@@ -138,7 +142,7 @@ def extend_pythonpath():
 
 def create_abs_path(rel_pth):
     """
-    Create an abs path based on relative path given
+    Create an abs path based on a path relative to the entry path
     :param rel_pth:
     :return:
     """
