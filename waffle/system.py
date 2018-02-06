@@ -157,4 +157,4 @@ def abs_path(rel_pth):
 
 
 if __name__ == "__main__":
-    print(get_script_directory())
+    pass
