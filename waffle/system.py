@@ -156,19 +156,5 @@ def abs_path(rel_pth):
     return create_abs_path(rel_pth)
 
 
-def get_script_path():
-    return __file__
-
-
-def get_script_directory():
-    return os.path.dirname(get_script_path())
-
-
 if __name__ == "__main__":
-    t = Timer()
-    t.start()
-    time.sleep(1)
-    t.stop()
-    print(t.t_elapsed)
-    print(get_entry_pth_parent())
-    print(get_entry_pth_basename())
+    print(get_script_directory())
